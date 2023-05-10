@@ -1,0 +1,76 @@
+:root {
+    --c-dark: #212529;
+    --c-brand: #d44e4e;
+    --c-brand-light: #dd7169;
+    --c-brand-rgb: 78, 87, 212;
+    --c-body: #727272;
+    --font-base: "ClashDisplay", sans-serif;
+    --box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.08);
+    --transition: all 0.5s ease;
+}
+
+body {
+    font-family: var(--font-base);
+    line-height: 1.7;
+    color: var(--c-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    font-weight: 600;
+    color: var(--c-dark);
+}
+
+a {
+    text-decoration: none;
+    color: var(--c-brand);
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--c-brand-light);
+}
+
+/**Header**/
+.navbar-brand h1 {
+    color: var(--c-dark);
+    font-size: 30px;
+}
+
+.navbar-brand h1 strong {
+    color: var(--c-brand);
+}
+
+.nav-link {
+    color: var(--c-dark);
+}
+
+.nav-link:hover {
+    color: var(--c-brand);
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+    background-color: var(--c-brand);
+}
+
+/**Footer**/
+.footer-icons {
+    color: var(--c-dark);
+    font-size: 25px
+}
+
+.footer-icons:hover {
+    transition: var(--transition);
+    color: var(--c-brand);
+}
