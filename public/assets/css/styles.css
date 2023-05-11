@@ -2,7 +2,7 @@
     --c-dark: #212529;
     --c-brand: #d44e4e;
     --c-brand-light: #dd7169;
-    --c-brand-rgb: 78, 87, 212;
+    --c-brand-rgb: 212, 75, 78;
     --c-body: #727272;
     --font-base: "ClashDisplay", sans-serif;
     --box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.08);
@@ -40,7 +40,19 @@ a {
 a:hover {
     color: var(--c-brand-light);
 }
-
+.btn-brand{
+    background-color: var(--c-brand);
+    color: white;
+}
+.btn-brand:hover{
+    background-color: var(--c-brand-light);
+    color: white;
+    transition: var(--transition);
+}
+.form-control:focus{
+box-shadow: 0 0 0 0.25rem rgba(212, 75, 78,.25);
+border-color: var(--c-brand-light);
+}
 /**Header**/
 .navbar-brand h1 {
     color: var(--c-dark);
