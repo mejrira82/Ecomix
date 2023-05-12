@@ -36,9 +36,18 @@ a {
     color: var(--c-brand);
     transition: var(--transition);
 }
-
+li{
+    list-style: none;
+}
 a:hover {
     color: var(--c-brand-light);
+}
+.text-brand{
+    color: var(--c-brand);
+}
+.text-brand:hover{
+    color: var(--c-brand-light);
+    transition: var(--transition);
 }
 .btn-brand{
     background-color: var(--c-brand);
@@ -78,12 +87,22 @@ border-color: var(--c-brand-light);
 .nav-link:hover {
     color: var(--c-brand);
 }
-
+.nav-link.text-brand{
+    color: var(--c-brand);
+}
+.nav-link.text-brand:hover{
+    color: var(--c-brand-light);
+    transition: var(--transition);
+}
 .dropdown-item.active,
 .dropdown-item:active {
     background-color: var(--c-brand);
 }
-
+@media screen and (max-width:992px) {
+    .navbar-btn{
+        display: none;
+    }
+}
 /**Footer**/
 .footer-icons {
     color: var(--c-dark);
