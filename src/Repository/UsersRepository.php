@@ -56,7 +56,7 @@ class UsersRepository extends ServiceEntityRepository implements PasswordUpgrade
         $this->save($user, true);
     }
 
-//    /**
+    //    /**
 //     * @return Users[] Returns an array of Users objects
 //     */
 //    public function findByExampleField($value): array
@@ -71,7 +71,7 @@ class UsersRepository extends ServiceEntityRepository implements PasswordUpgrade
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Users
+    //    public function findOneBySomeField($value): ?Users
 //    {
 //        return $this->createQueryBuilder('u')
 //            ->andWhere('u.exampleField = :val')

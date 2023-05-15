@@ -39,7 +39,7 @@ class OrdersRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
+    //    /**
 //     * @return Orders[] Returns an array of Orders objects
 //     */
 //    public function findByExampleField($value): array
@@ -54,7 +54,7 @@ class OrdersRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Orders
+    //    public function findOneBySomeField($value): ?Orders
 //    {
 //        return $this->createQueryBuilder('o')
 //            ->andWhere('o.exampleField = :val')

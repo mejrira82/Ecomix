@@ -14,8 +14,10 @@ class CategoryController extends AbstractController
     public function list(Categories $category): Response
     {
         $products = $category->getProducts();
-        return $this->render('categories/list.html.twig',
-        compact('category','products'));
+        return $this->render(
+            'categories/list.html.twig',
+            compact('category', 'products')
+        );
         // return $this->render('categories/list.html.twig',[
         //     'category' =>$category,
         //     'products' =>$products,

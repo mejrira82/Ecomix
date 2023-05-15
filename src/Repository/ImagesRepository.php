@@ -39,7 +39,7 @@ class ImagesRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
+    //    /**
 //     * @return Images[] Returns an array of Images objects
 //     */
 //    public function findByExampleField($value): array
@@ -54,7 +54,7 @@ class ImagesRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Images
+    //    public function findOneBySomeField($value): ?Images
 //    {
 //        return $this->createQueryBuilder('i')
 //            ->andWhere('i.exampleField = :val')

@@ -60,7 +60,7 @@ class Categories
     {
         return $this->categoryOrder;
     }
-    
+
     public function setCategoryOrders(int $categoryOrder): self
     {
         $this->categoryOrder = $categoryOrder;

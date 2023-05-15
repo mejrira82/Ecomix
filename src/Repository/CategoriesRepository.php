@@ -39,7 +39,7 @@ class CategoriesRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
+    //    /**
 //     * @return Categories[] Returns an array of Categories objects
 //     */
 //    public function findByExampleField($value): array
@@ -54,7 +54,7 @@ class CategoriesRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Categories
+    //    public function findOneBySomeField($value): ?Categories
 //    {
 //        return $this->createQueryBuilder('c')
 //            ->andWhere('c.exampleField = :val')

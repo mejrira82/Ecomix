@@ -39,7 +39,7 @@ class CouponsRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
+    //    /**
 //     * @return Coupons[] Returns an array of Coupons objects
 //     */
 //    public function findByExampleField($value): array
@@ -54,7 +54,7 @@ class CouponsRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Coupons
+    //    public function findOneBySomeField($value): ?Coupons
 //    {
 //        return $this->createQueryBuilder('c')
 //            ->andWhere('c.exampleField = :val')
