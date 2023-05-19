@@ -128,7 +128,7 @@ class RegistrationController extends AbstractController
             'register',
             compact('user', 'token')
         );
-        $this->addFlash('success', 'email sent successfully ');
+        $this->addFlash('success', 'Email sent successfully ');
         return $this->redirectToRoute('account_index');
     }
 }

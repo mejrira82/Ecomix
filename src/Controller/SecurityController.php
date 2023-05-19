@@ -70,7 +70,7 @@ class SecurityController extends AbstractController
                     'password_reset',
                     $context
                 );
-                $this->addFlash('success', 'email sent successfully ');
+                $this->addFlash('success', 'Email sent successfully ');
                 return $this->redirectToRoute('app_login');
             }
             $this->addFlash('danger', 'A problem has occurred');
