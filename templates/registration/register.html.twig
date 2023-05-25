@@ -1,5 +1,4 @@
 {% extends 'base.html.twig' %}
-
 {% block body %}
 	<div class="register d-flex justify-content-center align-items-center" style="height:800px">
 		<div class="container">
@@ -21,9 +20,7 @@
 					</div>
 					{{ form_rest(registrationForm) }}
 					{{ form_end(registrationForm) }}
-					<p class="text-center mt-4">Do you have an account ?<a href="{{path('app_login')}}">
-							Sign In Now</a>
-					</p>
+					<p class="text-center mt-4">Do you have an account ?<a href="{{path('app_login')}}">Sign In Now</a></p>
 				</div>
 			</div>
 		</div>

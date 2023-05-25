@@ -25,12 +25,8 @@ class SecurityController extends AbstractController
         // if ($this->getUser()) {
         //     return $this->redirectToRoute('target_path');
         // }
-
-        // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
-        // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
-
         return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
     }
 
@@ -39,7 +35,6 @@ class SecurityController extends AbstractController
     {
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
     }
-
     #[Route(path: '/reset-pass', name: 'forgotten_password')]
     public function forgottenPassword(
         Request $request, UsersRepository $usersRepository,
@@ -49,7 +44,6 @@ class SecurityController extends AbstractController
     ): Response {
         $form = $this->createForm(ResetPasswordRequestFormType::class);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $user = $usersRepository->findOneByEmail($form->get('email')->getData());
             if ($user) {
@@ -80,7 +74,6 @@ class SecurityController extends AbstractController
             'requestPassForm' => $form->createView()
         ]);
     }
-
     #[Route('reset-pass/{token}', name: "reset_pass")]
     public function resetPass(
         string $token, Request $request,

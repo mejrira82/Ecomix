@@ -20,26 +20,21 @@ class OrdersRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Orders::class);
     }
-
     public function save(Orders $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
-
         if ($flush) {
             $this->getEntityManager()->flush();
         }
     }
-
     public function remove(Orders $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
-
         if ($flush) {
             $this->getEntityManager()->flush();
         }
     }
-
-    //    /**
+//    /**
 //     * @return Orders[] Returns an array of Orders objects
 //     */
 //    public function findByExampleField($value): array
@@ -53,8 +48,7 @@ class OrdersRepository extends ServiceEntityRepository
 //            ->getResult()
 //        ;
 //    }
-
-    //    public function findOneBySomeField($value): ?Orders
+//    public function findOneBySomeField($value): ?Orders
 //    {
 //        return $this->createQueryBuilder('o')
 //            ->andWhere('o.exampleField = :val')

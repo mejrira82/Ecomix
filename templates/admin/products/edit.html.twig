@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+	<div class="register d-flex justify-content-center align-items-center" style="height:800px">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-6 col-sm-12">
+					<h1 class="text-center fw-bold text-uppercase mb-2">Edit product</h1>
+					<p class="text-muted text-center mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+					{% include 'admin/products/_form.html.twig'  with {'button_label': 'Update'} %}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+

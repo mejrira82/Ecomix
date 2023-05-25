@@ -21,13 +21,10 @@ class ProductsRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Products::class);
     }
-
     public function findProductsPaginated(int $page, string $slug, int $limit = 6): array
     {
         $limit = abs($limit);
-
         $result = [];
-
         $query = $this->getEntityManager()->createQueryBuilder()
             ->select('c', 'p')
             ->from('App\Entity\Products', 'p')
@@ -37,13 +34,10 @@ class ProductsRepository extends ServiceEntityRepository
             ->setFirstResult(($page * $limit) - $limit);
         $paginator = new Paginator($query);
         $data = $paginator->getQuery()->getResult();
-
         if (empty($data)) {
             return $result;
         }
-
         $pages = ceil($paginator->count() / $limit);
-
         $result['data'] = $data;
         $result['pages'] = $pages;
         $result['page'] = $page;
@@ -53,22 +47,18 @@ class ProductsRepository extends ServiceEntityRepository
     public function save(Products $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
-
         if ($flush) {
             $this->getEntityManager()->flush();
         }
     }
-
     public function remove(Products $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
-
         if ($flush) {
             $this->getEntityManager()->flush();
         }
     }
-
-    //    /**
+//    /**
 //     * @return Products[] Returns an array of Products objects
 //     */
 //    public function findByExampleField($value): array
@@ -82,8 +72,7 @@ class ProductsRepository extends ServiceEntityRepository
 //            ->getResult()
 //        ;
 //    }
-
-    //    public function findOneBySomeField($value): ?Products
+//    public function findOneBySomeField($value): ?Products
 //    {
 //        return $this->createQueryBuilder('p')
 //            ->andWhere('p.exampleField = :val')

@@ -12,10 +12,8 @@ use Faker;
 class UsersFixtures extends Fixture
 {
     public function __construct(
-        private UserPasswordHasherInterface $passwordEncoder,
-        private SluggerInterface $slugger
-    ) {
-    }
+        private UserPasswordHasherInterface $passwordEncoder,private SluggerInterface $slugger) {
+        }
     public function load(ObjectManager $manager): void
     {
         $admin = new Users();

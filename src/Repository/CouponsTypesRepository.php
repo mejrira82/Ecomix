@@ -20,26 +20,21 @@ class CouponsTypesRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, CouponsTypes::class);
     }
-
     public function save(CouponsTypes $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
-
         if ($flush) {
             $this->getEntityManager()->flush();
         }
     }
-
     public function remove(CouponsTypes $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
-
         if ($flush) {
             $this->getEntityManager()->flush();
         }
     }
-
-    //    /**
+//    /**
 //     * @return CouponsTypes[] Returns an array of CouponsTypes objects
 //     */
 //    public function findByExampleField($value): array
@@ -53,8 +48,7 @@ class CouponsTypesRepository extends ServiceEntityRepository
 //            ->getResult()
 //        ;
 //    }
-
-    //    public function findOneBySomeField($value): ?CouponsTypes
+//    public function findOneBySomeField($value): ?CouponsTypes
 //    {
 //        return $this->createQueryBuilder('c')
 //            ->andWhere('c.exampleField = :val')

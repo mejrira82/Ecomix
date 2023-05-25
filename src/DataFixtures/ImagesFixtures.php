@@ -13,7 +13,6 @@ class ImagesFixtures extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager): void
     {
         $faker = Faker\Factory::create('fr_FR');
-
         for ($img = 1; $img <= 1000; $img++) {
             $image = new Images();
             $image->setName($faker->image(null, 640, 400));
@@ -21,7 +20,6 @@ class ImagesFixtures extends Fixture implements DependentFixtureInterface
             $image->setProducts($product);
             $manager->persist($image);
         }
-
         $manager->flush();
     }
     public function getDependencies(): array

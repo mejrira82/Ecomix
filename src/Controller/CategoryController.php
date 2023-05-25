@@ -21,9 +21,5 @@ class CategoryController extends AbstractController
             'categories/list.html.twig',
             compact('category', 'products')
         );
-        // return $this->render('categories/list.html.twig',[
-        //     'category' =>$category,
-        //     'products' =>$products,
-        // ]);
     }
 }

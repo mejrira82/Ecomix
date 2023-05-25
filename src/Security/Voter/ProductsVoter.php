@@ -12,14 +12,11 @@ class ProductsVoter extends Voter
 {
     const EDIT = 'PRODUCT_EDIT';
     const DELETE = 'PRODUCT_DELETE';
-
     private $security;
-
     public function __construct(Security $security)
     {
         $this->security = $security;
     }
-
     protected function supports(string $attribute, $product): bool
     {
         if (!in_array($attribute, [self::EDIT, self::DELETE])) {
@@ -31,11 +28,9 @@ class ProductsVoter extends Voter
         return true;
         // return in_array($attribute, [self::EDIT, self::DELETE]) && $product instanceof Products;
     }
-
     protected function voteOnAttribute($attribute, $product, TokenInterface $token): bool
     {
         $user = $token->getUser();
-
         if (!$user instanceof UserInterface)
             return false;
 
@@ -51,7 +46,6 @@ class ProductsVoter extends Voter
                 break;
         }
     }
-
     private function canEdit()
     {
         return $this->security->isGranted('ROLE_PRODUCT_ADMIN');

@@ -18,10 +18,8 @@ class ResetPasswordFormType extends AbstractType
                     'class' => 'form-control mb-3',
                     'placeholder' => 'Password'
                 ],
-            ])
-        ;
+            ]);
     }
-
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([

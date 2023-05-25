@@ -11,7 +11,6 @@ class AppFixtures extends Fixture
     {
         // $categories = new Categories();
         // $manager->persist($product);
-
         $manager->flush();
     }
 }

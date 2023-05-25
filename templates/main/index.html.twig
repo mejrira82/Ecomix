@@ -1,5 +1,4 @@
 {% extends 'base.html.twig' %}
-
 {% block body %}
 	<div class="container">
 		<div class="row justify-content-center">
@@ -12,8 +11,7 @@
 			{% for category in category %}
 				{% if category.parent == null %}
 					<div clas"col-12">
-						<h2 class="mb-3">{{category.name}}
-						</h2>
+						<h2 class="mb-3">{{category.name}}</h2>
 					</div>
 				{% else %}
 					<div class="col-3">

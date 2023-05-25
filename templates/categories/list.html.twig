@@ -1,15 +1,10 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}Liste des produits de la catégorie
-	{{ category.name }}
-{% endblock %}
-
+{% block title %}Ecomix-{{ category.name }}{% endblock %}
 {% block body %}
 	<main class="container">
 		<section class="row ">
 			<div class="col-12 mt-5 mb-3">
-				<h1 class="text-center">Liste des produits de la catégorie
-					{{ category.name }}</h1>
+				<h1 class="text-center">Liste des produits de la catégorie{{ category.name }}</h1>
 			</div>
 			{% for product in products.data %}
 				<div class="col-lg-3 col-sm-4 col-xs-12 mb-3 ">

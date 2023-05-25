@@ -28,9 +28,7 @@ class RegistrationController extends AbstractController
         $user = new Users();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
-            // encode the plain password
             $user->setPassword(
                 $userPasswordHasher->hashPassword(
                     $user,
@@ -39,22 +37,14 @@ class RegistrationController extends AbstractController
             );
             $entityManager->persist($user);
             $entityManager->flush();
-
-            // Create header
             $header = [
                 'typ' => 'JWT',
                 'alg' => 'HS256'
             ];
-
-            // Create payload
             $payload = [
                 'user_id' => $user->getId()
             ];
-
-            // Generate token
             $token = $jwt->generate($header, $payload, $this->getParameter('app.jwtsecret'));
-
-            // Send mail
             $mail->send(
                 'no-reply@ecomix.tn',
                 $user->getEmail(),
@@ -62,26 +52,22 @@ class RegistrationController extends AbstractController
                 'register',
                 compact('user', 'token')
             );
-
             return $userAuthenticator->authenticateUser(
                 $user,
                 $authenticator,
                 $request
             );
         }
-
         return $this->render('registration/register.html.twig', [
             'registrationForm' => $form->createView(),
         ]);
     }
-
     #[Route('/verif/{token}', name: 'verify_user')]
     public function verifyUser($token, JWTService $jwt, UsersRepository $usersRepository, EntityManagerInterface $em): Response
     {
         if ($jwt->isValid($token) && !$jwt->isExpired($token) && $jwt->check($token, $this->getParameter('app.jwtsecret'))) {
             $payload = $jwt->getPayload($token);
             $user = $usersRepository->find($payload['user_id']);
-
             if ($user && !$user->getIsVerified()) {
                 $user->setIsVerified(true);
                 $em->flush($user);
@@ -92,12 +78,10 @@ class RegistrationController extends AbstractController
         $this->addFlash('danger', 'The token is invalid or has expired');
         return $this->redirectToRoute('app_login');
     }
-
     #[Route('/resendverif', name: 'resend_verif')]
     public function resendVerif(JWTService $jwt, SendMailService $mail, UsersRepository $usersRepository): Response
     {
         $user = $this->getUser();
-
         if (!$user) {
             $this->addFlash('danger', 'You must be logged in to access this page');
             return $this->redirectToRoute('app_login');
@@ -106,21 +90,14 @@ class RegistrationController extends AbstractController
             $this->addFlash('warning', 'This user is already activated');
             return $this->redirectToRoute('account_index');
         }
-        // Create header
         $header = [
             'typ' => 'JWT',
             'alg' => 'HS256'
         ];
-
-        // Create payload
         $payload = [
             'user_id' => $user->getId()
         ];
-
-        // Generate token
         $token = $jwt->generate($header, $payload, $this->getParameter('app.jwtsecret'));
-
-        // Send mail
         $mail->send(
             'no-reply@ecomix.tn',
             $user->getEmail(),
