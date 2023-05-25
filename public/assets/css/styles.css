@@ -36,40 +36,50 @@ a {
     color: var(--c-brand);
     transition: var(--transition);
 }
-li{
+
+li {
     list-style: none;
 }
+
 a:hover {
     color: var(--c-brand-light);
 }
-.text-brand{
+
+.text-brand {
     color: var(--c-brand);
 }
-.text-brand:hover{
+
+.text-brand:hover {
     color: var(--c-brand-light);
     transition: var(--transition);
 }
-.btn-brand{
+
+.btn-brand {
     background-color: var(--c-brand);
     color: white;
 }
-.btn-brand:hover{
+
+.btn-brand:hover {
     background-color: var(--c-brand-light);
     color: white;
     transition: var(--transition);
 }
-.form-control:focus{
-box-shadow: 0 0 0 0.25rem rgba(212, 75, 78,.25);
-border-color: var(--c-brand-light);
+
+.form-control:focus {
+    box-shadow: 0 0 0 0.25rem rgba(212, 75, 78, .25);
+    border-color: var(--c-brand-light);
 }
-.form-check-input:focus{
-    box-shadow: 0 0 0 0.25rem rgba(212, 75, 78,.25);
-border-color: var(--c-brand-light);
+
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.25rem rgba(212, 75, 78, .25);
+    border-color: var(--c-brand-light);
 }
-.form-check-input:checked{
+
+.form-check-input:checked {
     background-color: var(--c-brand);
     border-color: var(--c-brand);
 }
+
 /**Header**/
 .navbar-brand h1 {
     color: var(--c-dark);
@@ -87,22 +97,27 @@ border-color: var(--c-brand-light);
 .nav-link:hover {
     color: var(--c-brand);
 }
-.nav-link.text-brand{
+
+.nav-link.text-brand {
     color: var(--c-brand);
 }
-.nav-link.text-brand:hover{
+
+.nav-link.text-brand:hover {
     color: var(--c-brand-light);
     transition: var(--transition);
 }
+
 .dropdown-item.active,
 .dropdown-item:active {
     background-color: var(--c-brand);
 }
+
 @media screen and (max-width:992px) {
-    .navbar-btn{
+    .navbar-btn {
         display: none;
     }
 }
+
 /**Footer**/
 .footer-icons {
     color: var(--c-dark);
@@ -112,4 +127,19 @@ border-color: var(--c-brand-light);
 .footer-icons:hover {
     transition: var(--transition);
     color: var(--c-brand);
+}
+
+/**Pagination**/
+.pagination-nav .page-link {
+    color: var(--c-dark);
+}
+
+.pagination-nav .active>.page-link {
+    background-color: var(--c-brand);
+    border-color: var(--c-brand);
+    color: white;
+}
+
+.pagination-nav .page-link:focus {
+    box-shadow: none;
 }
