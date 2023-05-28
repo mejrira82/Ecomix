@@ -8,6 +8,15 @@
 				{{form_row(productForm.description)}}
 				{{form_row(productForm.price)}}
 				{{form_row(productForm.stock)}}
+				{% if app.request.attributes.get('_route') == 'admin_products_edit' %}
+					{% for image in product.images %}
+						<div>
+							<img src="{{asset('assets/uploads/products/mini/500x500-' ~ image.name )}}" class="d-block w-100" alt="{{ product.name }}">
+							<a href="{{path('admin_products_delete_image',{id:image.id})}}" data-delete data-token="{{csrf_token('delete' ~ image.id)}}">Delete</a>
+						</div>
+					{% endfor %}
+				{% endif %}
+				{{form_row(productForm.images)}}
 				<div class="text-center">
 					<button type="submit" class="btn btn-brand">Validate</button>
 				</div>

@@ -16,7 +16,7 @@ class CategoryController extends AbstractController
     public function list(Categories $category, ProductsRepository $productsRepository, Request $request): Response
     {
         $page = $request->query->getInt('page', 1);
-        $products = $productsRepository->findProductsPaginated($page, $category->getSlug(), 8);
+        $products = $productsRepository->findProductsPaginated($page, $category->getSlug(), 9);
         return $this->render(
             'categories/list.html.twig',
             compact('category', 'products')

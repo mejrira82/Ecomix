@@ -1,23 +1,26 @@
 {% extends 'base.html.twig' %}
-{% block title %}Ecomix-{{ category.name }}{% endblock %}
+{% block title %}Ecomix-{{ category.name }}
+{% endblock %}
 {% block body %}
 	<main class="container">
 		<section class="row ">
 			<div class="col-12 mt-5 mb-3">
 				<h1 class="text-center">Liste des produits de la catégorie{{ category.name }}</h1>
 			</div>
-			{% for product in products.data %}
-				<div class="col-lg-3 col-sm-4 col-xs-12 mb-3 ">
-					<article class="card h-100 overflow-hidden">
-						<img class="card-img-top" src="..." alt="Card image cap">
-						<div class="card-body">
-							<h2 class="card-title">{{ product.name }}</h2>
-							<p class="card-text">{{ product.description }}</p>
-							<a href="{{ path('products_details', {"slug": product.slug }) }}" class="btn btn-brand">Voir les détails</a>
-						</div>
-					</article>
-				</div>
-			{% endfor %}
+			<div class="row row-cols-1 row-cols-md-2 g-4">
+				{% for product in products.data %}
+					<div class="col-lg-4 col-sm-12 col-xs-12 mb-3 ">
+						<article class="card h-100">
+							<div class="card-body">
+								<img class="card-img-top" src="{{asset('assets/uploads/products/mini/500x500-' ~ product.images[0].name  )}}" alt="Card image cap">
+								<h2 class="card-title">{{ product.name }}</h2>
+								<p class="card-text text-truncate">{{ product.description }}</p>
+								<a href="{{ path('products_details', {"slug": product.slug }) }}" class="btn btn-brand">Voir les détails</a>
+							</div>
+						</article>
+					</div>
+				{% endfor %}
+			</div>
 			{% set path = 'category_list' %}
 			{% set slug = category.slug %}
 			{% set pages = products.pages %}

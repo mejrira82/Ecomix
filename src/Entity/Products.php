@@ -32,7 +32,7 @@ class Products
     #[ORM\ManyToOne(inversedBy: 'products')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Categories $categories = null;
-    #[ORM\OneToMany(mappedBy: 'products', targetEntity: Images::class, orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'products', targetEntity: Images::class, orphanRemoval: true, cascade: ['persist'])]
     private Collection $images;
     #[ORM\OneToMany(mappedBy: 'products', targetEntity: OrdersDetails::class)]
     private Collection $ordersDetails;
@@ -42,7 +42,6 @@ class Products
         $this->ordersDetails = new ArrayCollection();
         $this->created_at = new \DateTimeImmutable();
     }
-
     public function getId(): ?int
     {
         return $this->id;
