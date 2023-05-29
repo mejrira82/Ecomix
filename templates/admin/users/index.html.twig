@@ -1,6 +1,58 @@
 {% extends 'base.html.twig' %}
-{% block title %}Hello ProductsController!{% endblock %}
 {% block body %}
-	<h1>Users List</h1>
-{% endblock %}
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<h1 class="text-uppercase text-center">Users list</h1>
+			</div>
+			<div class="col-12">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>First Name</th>
+							<th>Last Namem</th>
+							<th>Email</th>
+							<th>Role</th>
+							<th>Verification</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for user in users %}
+							<tr>
+								<td>{{ user.id }}</td>
+								<td>{{ user.firstname }}</td>
+								<td>{{ user.lastname }}</td>
+								<td>{{ user.email }}</td>
+								<td>
+									{% for role in user.roles %}
+										{% if role == "ROLE_ADMIN" %}
+											{% set name = "Administrator" %}
+											{% set color = "danger" %}
+										{% elseif role == "ROLE_PRODUCT_ADMIN" %}
+											{% set name = "Product Admin" %}
+											{% set color = "warning" %}
+										{% else %}
+											{% set name = "Membre" %}
+											{% set color = "success" %}
+										{% endif %}
+										<span class="badge bg-{{ color }}">{{ name }}</span>
+									{% endfor %}
+								</td>
+								<td>
+									<div class="form-check form-switch">
+										<input class="form-check-input" type="checkbox" role="switch" id="switch{{ user.id }}" {{ user.isVerified ? "checked" : "" }} disabled>
+										<label class="form-check-label" for="switch{{ user.id }}"></label>
+									</div>
+								</td>
+								<td>
+									<a href="#" class="btn btn-success">Modifier</a>
+								</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		{% endblock %}
 

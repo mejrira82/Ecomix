@@ -1,6 +1,39 @@
 {% extends 'base.html.twig' %}
-{% block title %}Hello ProductsController!{% endblock %}
 {% block body %}
-	<h1>Products List</h1>
-{% endblock %}
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<h1 class="text-uppercase text-center">Products list</h1>
+			</div>
+			<div class="col-12">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Picture</th>
+							<th>Name</th>
+							<th>Price</th>
+							<th>Stock</th>
+							<th>Category</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for product in products %}
+							<tr>
+								<td>{{ product.id }}</td>
+								<td><img src="{{ asset('assets/uploads/products/mini/500x500-' ~ product.images[0].name ) }}" alt="{{ product.name }}" class="img-thumbnail" width="50"></td>
+								<td>{{ product.name }}</td>
+								<td>{{ product.price / 100 }}</td>
+								<td>{{ product.stock }}</td>
+								<td>{{ product.categories.name }}</td>
+								<td>
+									<a href="{{ path('admin_products_edit', {id: product.id})}}" class="btn btn-success">Modifier</a>
+								</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		{% endblock %}
 
