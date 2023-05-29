@@ -9,6 +9,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ProductsRepository::class)]
 class Products
@@ -20,12 +21,20 @@ class Products
     #[ORM\Column]
     private ?int $id = null;
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message:'The name cannot be empty')]
+    #[Assert\Length(
+        min:5,
+        max:25,
+        minMessage:'The title cannot be under {{ limit }} caractere',
+        maxMessage:'The title cannot be most {{ limit }} caractere'
+        )]
     private ?string $name = null;
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
     #[ORM\Column]
     private ?int $price = null;
     #[ORM\Column]
+    #[Assert\PositiveOrZero(message:'The stock cant be negative')]
     private ?int $stock = null;
     #[ORM\Column(options: ['default' => 'CURRENT_TIMESTAMP'])]
     private ?\DateTimeImmutable $created_at = null;
